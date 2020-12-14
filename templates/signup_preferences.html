@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cognoscere</title>
+    <link rel='stylesheet' href='static/style.css'>
+</head>
+
+<body>
+    <div class="login-page">
+          <h1>Enter a Preference</h1>
+          <div class="form">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="notification_danger">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+            {% endwith %}
+            <form method="POST" class="login-form" action="/signup_preferences">
+            <input type="text" name="pref0" placeholder="Ex. Computer Science"/>
+            <input type="text" name="pref1" placeholder="Ex. Data Science"/>
+            <input type="text" name="pref2" placeholder="Ex. Machine Learning"/>
+            <input type="text" name="pref3" placeholder="Ex. Calculus"/>
+            <input type="text" name="pref4" placeholder="Ex. AI"/>
+            <button> Sign Up</button>
+            </form>
+          </div>
+    </div>
+</body>
+
+</html>

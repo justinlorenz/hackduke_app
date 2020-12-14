@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cognoscere</title>
+    <link rel='stylesheet' href='static/style.css'>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <p>Welcome {{ name }}!</p>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><span class="nav-links"><a href="{{ url_for('main.dashboard') }}">Dashboard</a></span></li>
+                <li><span class="nav-links"><a href="{{ url_for('main.duke_courses') }}">Duke Courses</a></span></li>
+                <li><span class="nav-links"><a href="{{ url_for('main.courses') }}">Coursera Courses</a></span></li>
+                <li><span class="nav-links"><a href="{{ url_for('main.scholarships') }}">Scholarships</a></span></li>
+                <li><span class="nav-links"><a href="{{ url_for('main.mentors') }}">Find A Mentor</a></span></li>
+                <li><span class="nav-links"><a href="{{ url_for('main.preferences') }}">Change Preferences</a></span></li>
+                <li><span class="nav-links"><a href="{{ url_for('auth.logout') }}">Logout</a></span></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="pref_list">
+        <h1>Your preferences are:</h1>
+        <ul>
+            {% for s in prefs %}
+                  <li>{{ s }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+</html>

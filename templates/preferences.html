@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cognoscere</title>
+    <link rel='stylesheet' href='static/style.css'>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <p>Welcome {{ name }}!</p>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><span class="nav-links"><a href="{{ url_for('main.dashboard') }}">Dashboard</a></span></li>
+                <li><span class="nav-links"><a href="{{ url_for('main.duke_courses') }}">Duke Courses</a></span></li>
+                <li><span class="nav-links"><a href="{{ url_for('main.courses') }}">Coursera Courses</a></span></li>
+                <li><span class="nav-links"><a href="{{ url_for('main.scholarships') }}">Scholarships</a></span></li>
+                <li><span class="nav-links"><a href="{{ url_for('main.mentors') }}">Find A Mentor</a></span></li>
+                <li><span class="nav-links"><a href="{{ url_for('main.preferences') }}">Change Preferences</a></span></li>
+                <li><span class="nav-links"><a href="{{ url_for('auth.logout') }}">Logout</a></span></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="login-page">
+          <h1>Add a new preference</h1>
+          <div class="form">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="notification_danger">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+            {% endwith %}
+            <form method="POST" class="login-form" action="/preferences">
+            <input type="text" name="add_pref" placeholder="Ex. Computer Science"/>
+            <button>Add</button>
+            <h1>Delete a preference</h1>
+            <input type="text" name="del_pref" placeholder="Ex. Computer Science"/>
+            <button>Delete</button>
+            </form>
+          </div>
+    </div>
+</body>
+
+</html>
